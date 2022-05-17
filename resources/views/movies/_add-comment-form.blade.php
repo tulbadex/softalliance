@@ -1,6 +1,6 @@
 @auth
     <x-panel>
-        <form method="POST" action="/movie/{{ $movie->slug }}/comments">
+        <form method="POST" action="/movies/{{ $movie->slug }}/comments">
             @csrf
 
             <!-- Name -->
@@ -17,7 +17,7 @@
             <div>
                 <x-label for="comment" :value="__('Comment')" />
 
-                <x-textarea id="comment" class="block mt-1 w-full" :value="old('comment')" name="description" required autofocus>
+                <x-textarea id="comment" class="block mt-1 w-full" :value="old('comment')" name="comment" required autofocus>
                     
                 </x-textarea>
                 @error('comment')

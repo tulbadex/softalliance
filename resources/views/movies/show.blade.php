@@ -73,6 +73,10 @@
                         </table>
                         <section class="col-span-8 col-start-5 mt-10 space-y-6">
                             @include ('movies._add-comment-form')
+
+                            @foreach ($movie->comments as $comment)
+                                <x-movie-comment :comment="$comment"/>
+                            @endforeach
                         </section>
                     </div>
                 </div>
