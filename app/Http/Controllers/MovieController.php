@@ -50,7 +50,6 @@ class MovieController extends Controller
             request()->all()
         );
 
-        // $path = request()->file('photo')->store('/public/images');
         $path = request()->file('photo')->storePublicly('/images', 'public');
         $validate['photo'] = $path;
 

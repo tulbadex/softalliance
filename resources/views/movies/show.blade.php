@@ -21,12 +21,12 @@
     
             <div class="flex flex-col mt-10">
                 <div class="flex flex-col">
-                    <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+                    <div class="inline-block w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
     
                         <!-- Session Status -->
                         <x-auth-session-status class="mb-4" :status="session('message')" />
     
-                         <table class="min-w-full border-collapse border border-slate-500">
+                         <table class="w-full border-collapse border border-slate-500">
                             <tbody class="bg-white">
                                 <tr>
                                     <td class="border border-slate-700">Name</td>
@@ -60,7 +60,17 @@
 
                                 <tr>
                                     <td class="border border-slate-700">Genre</td>
-                                    <td class="border border-slate-700">{{ $movie->genre }}</td>
+                                    <td class="border border-slate-700 mx-24 bg-green-200 text-justify px-6">
+                                        <ul class="list-disc">
+                                            @php
+                                               $genres = explode(',', $movie->genre);
+    
+                                            @endphp
+                                            @foreach ($genres as $genre)
+                                                <li>{{ $genre }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </td>
                                 </tr>
 
                                 <tr>

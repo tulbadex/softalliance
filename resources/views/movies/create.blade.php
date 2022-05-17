@@ -16,14 +16,14 @@
             @csrf
 
             <!-- Name -->
-            <div>
+            <div class="mb-4">
                 <x-label for="name" :value="__('Name')" />
 
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
             <!-- Description -->
-            <div>
+            <div class="mb-4">
                 <x-label for="description" :value="__('Description')" />
 
                 <x-textarea id="description" class="block mt-1 w-full" :value="old('description')" name="description" required autofocus>
@@ -32,38 +32,39 @@
             </div>
 
             <!-- Release Date -->
-            <div>
+            <div class="mb-4">
                 <x-label for="release_date" :value="__('Release Date')" />
 
                 <x-input id="release_date" class="block mt-1 w-full" type="date" name="release_date" :value="old('release_date')" required autofocus />
             </div>
 
             <!-- Rating -->
-            <div>
+            <div class="mb-4">
                 <x-label for="rating" :value="__('Rating')" />
 
                 <x-input id="rating" class="block mt-1 w-full" type="number" min="1" max="5" name="rating" :value="old('rating')" required autofocus />
             </div>
 
             <!-- Ticket Price -->
-            <div>
+            <div class="mb-4">
                 <x-label for="ticket_price" :value="__('Ticket Price')" />
 
                 <x-input id="ticket_price" class="block mt-1 w-full" type="text" name="ticket_price" :value="old('ticket_price')" required autofocus />
             </div>
 
             <!-- Country -->
-            <div>
+            <div class="mb-4">
                 <x-label for="country" :value="__('Country')" />
 
                 <x-input id="country" class="block mt-1 w-full" type="text" name="country" :value="old('country')" required autofocus />
             </div>
 
             <!-- Genre -->
-            <div>
+            <div class="mb-4">
                 <x-label for="genre" :value="__('Genre')" />
 
                 <x-input id="genre" class="block mt-1 w-full" type="text" name="genre" :value="old('genre')" required autofocus />
+                <span class="text-xs">Use comma seperated to add multiple Genre</span>
             </div>
 
             <!-- Photo -->

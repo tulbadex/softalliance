@@ -47,11 +47,21 @@
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $movie->rating }}</td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $movie->ticket_price }}</td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $movie->country }}</td>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $movie->genre }}</td>
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                    <ul class="list-disc">
+                                        @php
+                                           $genres = explode(',', $movie->genre);
+
+                                        @endphp
+                                        @foreach ($genres as $genre)
+                                            <li>{{ $genre }}</li>
+                                        @endforeach
+                                    </ul>
+                                </td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                     <img src="{{ asset('storage/'.$movie->photo) }}" height="150" width="150" />
                                 </td>
-                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 items-center">
                         
                                     <a class="text-indigo-600 hover:text-indigo-900" href="{{ route('movie.show',$movie->slug) }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
