@@ -22,7 +22,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('rating');
             $table->decimal('ticket_price', 10,2);
             $table->char('country', 50);
-            $table->char('genre', 100);
+            $table->string('genre', 255);
             $table->char('photo', 150);
             $table->timestamps();
         });

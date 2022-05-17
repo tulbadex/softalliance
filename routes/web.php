@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MovieCommentsController;
+use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/* Route::get('/', function () {
+    // return view('welcome');
+    return Route::redirect('/', '/api/movies');
+}); */
+Route::redirect('/', '/movies');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+
+Route::controller(MovieController::class)->group(function ()
+{
+    Route::get('/movies', 'index')->name('movie.index');
+    Route::get('/movies/create', 'showForm');
+    Route::get('/movies/{movie:slug}', 'show')->name('movie.show');
+    Route::post('/movies/create', 'create')->name('movie.create');
 });
+
+Route::post('movies/{movie:slug}/comments', [MovieCommentsController::class, 'store']);
+
+require __DIR__.'/auth.php';
