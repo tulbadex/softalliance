@@ -22,7 +22,7 @@ class Movie extends Model
     {
         static::creating(function ($model) {
             //
-            $model->slug = Str::slug($model->name.Str::random(10), '-');
+            $model->slug = Str::slug($model->name.'-'.Str::random(10), '-');
         });
     }
 

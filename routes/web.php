@@ -29,9 +29,9 @@ Route::get('/dashboard', function () {
 Route::controller(MovieController::class)->group(function ()
 {
     Route::get('/movies', 'index')->name('movie.index');
-    Route::get('/movies/create', 'showForm');
+    Route::get('/movies/create', 'create');
     Route::get('/movies/{movie:slug}', 'show')->name('movie.show');
-    Route::post('/movies/create', 'create')->name('movie.create');
+    Route::post('/movies/create', 'store')->name('movie.create');
 });
 
 Route::post('movies/{movie:slug}/comments', [MovieCommentsController::class, 'store']);

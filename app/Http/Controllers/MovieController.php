@@ -24,7 +24,7 @@ class MovieController extends Controller
      * 
      * @return void  
     */
-    public function showForm()
+    public function create()
     {
         return view('movies.create');
 
@@ -43,7 +43,7 @@ class MovieController extends Controller
      * 
      * @return void  
     */
-    public function create()
+    public function store()
     {
         $validate = (new MovieValidator())->validate(
             $movie = new Movie(),
